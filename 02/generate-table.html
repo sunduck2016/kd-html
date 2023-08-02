@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">
+        
+    </div>
+    <script>
+        document.querySelector('#div1');
+        div1.innerHTML='hello world';
+    </script>
+    <div id="div1">
+
+    </div>
+
+    <script>
+        let div1 = document.querySelector('#div1');
+        let html = '<table border="1">';
+        html += '</table>'
+        div1.innerHTML=html;        
+    </script>
+</body>
+</html>

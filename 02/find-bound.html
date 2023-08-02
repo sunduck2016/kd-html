@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th{
+            width: 50px;
+            height: 50px;
+            color: blue;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td ccolspan="3" align="center"><button onclick="start(this)">start</button></td>
+        </tr>
+        <tr>
+            <th onclick="check(1)">1</th>
+            <th onclick="check(2)">2</th>
+            <th onclick="check(3)">3</th>
+        </tr>
+        <tr>
+            <th onclick="check(4)">4</th>
+            <th onclick="check(5)">5</th>
+            <th onclick="check(6)">6</th>
+        </tr>
+        <tr>
+            <th onclick="check(7)">7</th>
+            <th onclick="check(8)">8</th>
+            <th onclick="check(9)">9</th>
+        </tr>
+    </table>
+    <script>
+        let rNum=0;
+        function start(obj){
+            rNum = Math.floor(Math.random()*9)+1;
+            console.log(rNum); // 0-8
+            obj.style.display='none';
+            //obj.hidden=true;
+        }
+        let cnt=0;
+        function check(num) {
+            if(rNum==0) {
+                alert('game start');
+                return ;
+            }
+            cnt++
+            if(rNum==num){
+                alert('success count : '+cnt);
+                document.querySelector('button').style.display='';
+                cnt=0;
+                rNum=0;
+            }else{
+                alert('fail');
+            }
+        }
+    </script>
+</body>
+</html>
