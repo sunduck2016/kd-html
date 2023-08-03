@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="clock"></div>
+    <input type="text" id="timer" placeholder="alarm input at sec">
+    <button onclick="startTimer(this)">start</button>
+    <div style="display:block">
+        <audio controls src="/bgm/ring.wav" id="arlam"></audio>
+    </div>
+    <script>
+        function displayClock(){
+            const date = new Date();
+            document.querySelector('#clock').innerHTML = date;
+        }
+        /*for(let i=0; i<10; i++){
+            displayClock();
+        }*/
+        setInterval(displayClock,1000);
+        /*while(true) {
+            displayClock();
+        }*/
+        function startTimer(btn){
+            //let startBtn = document.querySelector('#startBtn');
+            if(btn.innerText=='start'){
+                const timer = document.querySelector('#timer').value * 1000;
+                setTimeout(function(){
+                    document.querySelector('#arlam').play();
+                    btn.innerText='arlam off';
+                },timer)
+            }else{
+                document.querySelector('#arlam').pause();
+                document.querySelector('#arlam').currentTime = 0;
+                btn.innerText = 'start';
+            }
+        }
+    </script>
+</body>
+</html>

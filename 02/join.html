@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form onsubmit="return check()">
+    <input type="text" id="name" placeholder="name"><br>
+    <input type="text" id="id" placeholder="id"><br>
+    <input type="password" id="pwd" placeholder="password"><br>
+    <!--<div>-->
+      <label for="m">man</label>
+      <input type="radio" id="m" name="trans">
+      <label for="f">woman</label>
+      <input type="radio" id="f" name="trans">
+    <!--</div>-->
+    <input type="text" id="phone" placeholder="phone"><br>
+    <button>join</button>
+  </form>
+  <script>
+    function check(){
+      const name = document.querySelector('#name');
+      const id = document.querySelector('#id');
+      const pwd = document.querySelector('#pwd');
+      //const radio = document.querySelector('#radio');
+      const trans = document.querySelector('input[name=trans]:checked');
+      const phone = document.querySelector('#phone');
+      if(name.value.trim().length<2){
+        alert('name is over 2byte');
+        id.value='';
+        id.focus();
+        return false;
+      }
+      if(id.value.trim().length<4){
+        alert('id is over 4byte');
+        id.value='';
+        id.focus();
+        return false;
+      }
+      if(pwd.value.trim().length<4){
+        alert('password is over 4byte');
+        pwd.value='';
+        pwd.focus();
+        return false;
+      }
+      /*if(radio.value.trim().length<1){
+        alert('input man or women');
+        pwd.value='';
+        pwd.focus();
+        return false;
+      }*/
+      if(gender === null){
+        alert('input man or women');
+        return false;
+      }
+      if(phone.value.trim().length!=11){
+        alert('phone is 11byte');
+        pwd.value='';
+        pwd.focus();
+        return false;
+      }
+      return true;
+    }
+  </script>
+</body>
+</html>
